@@ -147,18 +147,17 @@ http://blog.livedoor.jp/harukisan7/archives/31848231.html
 
 ```
 [yoshikishinya@YoshikinoMacBook-Pro] ~
-% curl 'http://localhost:8080/pet/edit/1' -X PATCH -H 'Content-Type: application/json' -d '{
+% curl 'http://localhost:8080/pet/1' -X PATCH -H 'Content-Type: application/json' -d '{
 "petName": "pochi",
 "petType": "アメリカンショートヘア",
 "petAge" : 2
 }' -i
-HTTP/1.1 201 
-Location: http://localhost:8080/pet/%7Bid%7D
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 17
-Date: Sun, 28 May 2023 06:52:00 GMT
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 09:03:57 GMT
 
-PATCH通信成功% 
+{"message":"pet successfully updated"}%  
 ```
 
 ## DELETE通信
@@ -167,12 +166,11 @@ PATCH通信成功%
 
 ```
 [yoshikishinya@YoshikinoMacBook-Pro] ~
-% curl 'http://localhost:8080/pet/delete/1' -X DELETE -H 'Content-Type: application/json' -i
-HTTP/1.1 201 
-Location: http://localhost:8080/pet/%7Bid%7D
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 18
-Date: Sun, 28 May 2023 06:51:20 GMT
+% curl 'http://localhost:8080/pet/1' -X DELETE -H 'Content-Type: application/json' -i
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 09:03:12 GMT
 
-DELETE通信成功%
+{"message":"pet successfully deleted"}%
 ```
