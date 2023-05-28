@@ -21,7 +21,7 @@ public class PetController {
     }
 
     @PatchMapping("/pet/edit/{id}")
-    public ResponseEntity<String> updatePet(@RequestBody @Valid PetCreateForm petCreateForm, @PathVariable(name = "id") int id) {
+    public ResponseEntity<String> updatePet(@RequestBody @Valid PetUpdateForm petUpdateForm, @PathVariable(name = "id") int id) {
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
                 .path("/pet/{id}") // id部分は実際に登録された際に発⾏したidを設定する
                 .build()
@@ -30,7 +30,7 @@ public class PetController {
     }
 
     @DeleteMapping("/pet/delete/{id}")
-    public ResponseEntity<String> deletePet(@RequestBody @Valid PetCreateForm petCreateForm, @PathVariable(name = "id") int id) {
+    public ResponseEntity<String> deletePet(@PathVariable(name = "id") int id) {
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
                 .path("/pet/{id}") // id部分は実際に登録された際に発⾏したidを設定する
                 .build()

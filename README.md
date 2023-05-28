@@ -152,12 +152,11 @@ http://blog.livedoor.jp/harukisan7/archives/31848231.html
 "petType": "アメリカンショートヘア",
 "petAge" : 2
 }' -i
-
 HTTP/1.1 201 
 Location: http://localhost:8080/pet/%7Bid%7D
 Content-Type: text/plain;charset=UTF-8
 Content-Length: 17
-Date: Sun, 28 May 2023 05:45:35 GMT
+Date: Sun, 28 May 2023 06:52:00 GMT
 
 PATCH通信成功% 
 ```
@@ -168,16 +167,12 @@ PATCH通信成功%
 
 ```
 [yoshikishinya@YoshikinoMacBook-Pro] ~
-% curl 'http://localhost:8080/pet/delete/1' -X DELETE -H 'Content-Type: application/json' -d '{
-"petName": "pochi",
-"petType": "アメリカンショートヘア",
-"petAge" : 2
-}' -i
+% curl 'http://localhost:8080/pet/delete/1' -X DELETE -H 'Content-Type: application/json' -i
 HTTP/1.1 201 
 Location: http://localhost:8080/pet/%7Bid%7D
 Content-Type: text/plain;charset=UTF-8
 Content-Length: 18
-Date: Sun, 28 May 2023 05:46:00 GMT
+Date: Sun, 28 May 2023 06:51:20 GMT
 
-DELETE通信成功%  
+DELETE通信成功%
 ```
