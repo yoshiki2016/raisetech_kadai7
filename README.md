@@ -1,5 +1,7 @@
 # APIの戻り値を確認
 
+## post通信
+
 バリデーションチェックにかからず正常に処理を終える場合
 
 ```
@@ -135,4 +137,47 @@ Date: Sat, 27 May 2023 08:54:20 GMT
 Connection: close
 
 {"timestamp":"2023-05-27T08:54:20.413+00:00","status":400,"error":"Bad Request","path":"/pet"}% 
+```
+
+## PATCH通信
+
+バリデーションチェックの内容は割愛します。<br>
+-Xオプションは以下を見てつけました。<br>
+http://blog.livedoor.jp/harukisan7/archives/31848231.html
+
+```
+[yoshikishinya@YoshikinoMacBook-Pro] ~
+% curl 'http://localhost:8080/pet/edit/1' -X PATCH -H 'Content-Type: application/json' -d '{
+"petName": "pochi",
+"petType": "アメリカンショートヘア",
+"petAge" : 2
+}' -i
+
+HTTP/1.1 201 
+Location: http://localhost:8080/pet/%7Bid%7D
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 17
+Date: Sun, 28 May 2023 05:45:35 GMT
+
+PATCH通信成功% 
+```
+
+## DELETE通信
+
+バリデーションチェックの内容は割愛します。
+
+```
+[yoshikishinya@YoshikinoMacBook-Pro] ~
+% curl 'http://localhost:8080/pet/delete/1' -X DELETE -H 'Content-Type: application/json' -d '{
+"petName": "pochi",
+"petType": "アメリカンショートヘア",
+"petAge" : 2
+}' -i
+HTTP/1.1 201 
+Location: http://localhost:8080/pet/%7Bid%7D
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 18
+Date: Sun, 28 May 2023 05:46:00 GMT
+
+DELETE通信成功%  
 ```
